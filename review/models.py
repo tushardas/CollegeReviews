@@ -1,14 +1,15 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 #model for user login
-class Credentials(models.Model):
-    username = models.CharField(unique = True, null=False, max_length=128)
-    password = models.CharField(null=False, max_length=128)
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    #password = models.CharField(null=0False, max_length=128)
+    #website = models.URLField(blank = True)
 
     def __unicode__(self):
-        return self.username
+        return self.user.username
 
 #model for College details
 class College(models.Model):
@@ -25,4 +26,4 @@ class FileInfo(models.Model):
     filename = models.CharField(null=False, max_length=128)
 
     def __unicode__(self):
-        return self.collname
+        return self.collname.name

@@ -5,38 +5,159 @@
         Welcome!!!
     </title>
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landing Page - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
 </head>
 <div class="navbar navbar-inverse navbar-static-top" role="navigation">
         
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" rel="home" href="/review">Logo</a>
-            </div>
         
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-        
-                <ul class="nav navbar-nav">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Advices</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-        
+    
                 <div class="col-sm-3 col-md-3 pull-right">
-                <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                <form class="navbar-form" role="search" method="get" action="/review/collreview" id="search_form">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Search" name="search" id="srch-term" type="text">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
                 </form>
                 </div>
-        
             </div>
-        </div>
+</div>
+
+<body>
+    
+        <!-- Navigation -->
+        <nav class="navbar navbar-light bg-light static-top">
+          <div class="container">
+            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="btn btn-primary" href="#">Sign In</a>
+          </div>
+        </nav>
+    
+        <!-- Masthead -->
+        <header class="masthead text-white text-center">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5">Know about the Colleges!!!</h1>
+              </div>
+              <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <form method="get" action="/review/collreview" id="search_form">
+                  <div class="form-row">
+                    <div class="col-12 col-md-9 mb-2 mb-md-0">
+                      <input type="text" class="form-control form-control-lg" placeholder="Enter College Name" name="search">
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </header>
+
+    
+        <!-- Testimonials -->
+        <section class="testimonials text-center bg-light">
+          <div class="container">
+            <h2 class="mb-5">Advices</h2>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-1.jpg' %}" alt="">
+                  <h5>Dr. Sarvapalli Radhakrishnan</h5>
+                  <p class="font-weight-light mb-0">"The main function of a university is not to grant degrees and diplomas, but to develop the university spirit and advance learning. The former is impossible without corporate life, the latter without honours and post-graduate!"</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-2.jpg' %}" alt="">
+                  <h5>Savitribai Phule</h5>
+                  <p class="font-weight-light mb-0">"Awake, Arise and educate. Smash traditions!"</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-3.jpg' %}" alt="">
+                  <h5>Dr. APJ Abdul Kalam</h5>
+                  <p class="font-weight-light mb-0">"Your best teacher is your last mistake!"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer bg-light">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                  <li class="list-inline-item">
+                    <a href="#">About</a>
+                  </li>
+                  <li class="list-inline-item">&sdot;</li>
+                  <li class="list-inline-item">
+                    <a href="#">Contact</a>
+                  </li>
+                  <li class="list-inline-item">&sdot;</li>
+                  <li class="list-inline-item">
+                    <a href="#">Terms of Use</a>
+                  </li>
+                  <li class="list-inline-item">&sdot;</li>
+                  <li class="list-inline-item">
+                    <a href="#">Privacy Policy</a>
+                  </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Start Bootstrap 2017. All Rights Reserved.</p>
+              </div>
+              <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item mr-3">
+                    <a href="#">
+                      <i class="fa fa-facebook fa-2x fa-fw"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item mr-3">
+                    <a href="#">
+                      <i class="fa fa-twitter fa-2x fa-fw"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fa fa-instagram fa-2x fa-fw"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+    
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+      </body>
+    
 </html>

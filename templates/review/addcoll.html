@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <center>
+            <a href="/review/">Home</a>
+            <form id="add_coll_form" method="post" action="/review/addcoll">
+                {% csrf_token %}
+                College Name: <input type="text" name="name" value="" size="50"/>
+                <br/>
+                Location: <input type="text" name="location" value="" size="50"/>
+                <br/>
+                Principles: <input type="text" name="principles" value="" size="50"/>
+                <br/>
+                <input type="submit" name="submit" value="Add College"/>            
+            </form>
+        </center>
+
+        <br/><br/>
+
+        <center>
+            {% if flag == 1 %}
+                <p>Successfully registered {{ name }} college</p>
+            {% elif flag == 0 %}
+                <p>{{ name }} College already registered</p>
+            {% endif %}
+        </center>
+    </body>
+</html>

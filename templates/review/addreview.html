@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <center>
+            <a href="/review/">Home</a>
+            <form id="add_review_form" method="post" action="/review/addreview">
+                {% csrf_token %}
+                College Name: <input type="text" name="name" value="" size="50"/>
+                <br/>
+                Review: <input type="text" name="review" value="" size="50"/>
+                <br/>
+                <input type="submit" name="submit" value="Add College"/>            
+            </form>
+        </center>
+    </body>
+</html>
