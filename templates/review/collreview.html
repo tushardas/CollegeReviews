@@ -1,22 +1,106 @@
+{% load static %}
 <html>
-    <body>
-        {% if flag != 0 %}
-           <pre>{{ line }}</pre>
-        
+    <head>
+        <script src="{% static 'js/collreview.js' %}"></script>
+        <link href="{% static 'css/collreview.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/index.css' %}" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>College Review</title>
+    
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+        <!-- Custom fonts for this template -->
+        <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
+    </head>
+    <body background="{% static 'img/uvce.jpg' %}">
+
+            <nav class="navbar navbar-light bg-light static-top">
+                    <div class="container">
+                      <a class="navbar-brand" href="/review">College Review</a>
+                      <a class="btn btn-primary" href="login">Sign In</a>
+                    </div>
+            </nav>
+            
+               <font color="White" ><center><h3 class = "name">{{ name }} Review</h3></center></font>
+            {% if flag != 0 %}
+            <div class="row1">
+            {% for i in line %}
+               
+            <div class="jumbotron">
+                    <div><strong>{{i}}</strong></div>
+            </div>
+            </center>
+           
+           {% endfor %}
+           </div>
+        <center>
+          <div>
         {% elif flag == 0 %}
-            <p>Your college is not registered with us! Please register and add your review</p>
+            <font color="white"><p>Your college is not registered with us! Please register and add your review</p></font>
             <a href="/review/addcoll">Add your college details and review</a>
         {% endif %}
-        <br><br><br>   
-        <a href="/review/addreview">Click to add your review</a>
+        <br><br><br>
+      </div>
+        </center>
 
-        <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+        <center><a href="/review/addreview">Click to add your review</a></center>
+        <br/><br/>
+    
+        <footer class="footer bg-light">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                      <ul class="list-inline mb-2">
+                        <li class="list-inline-item">
+                          <a href="#">About</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                          <a href="#">Contact</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                          <a href="#">Terms of Use</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                          <a href="#">Privacy Policy</a>
+                        </li>
+                      </ul>
+                      <p class="text-muted small mb-4 mb-lg-0">&copy; Start Bootstrap 2017. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                      <ul class="list-inline mb-0">
+                        <li class="list-inline-item mr-3">
+                          <a href="#">
+                            <i class="fa fa-facebook fa-2x fa-fw"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item mr-3">
+                          <a href="#">
+                            <i class="fa fa-twitter fa-2x fa-fw"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="fa fa-instagram fa-2x fa-fw"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </footer>
     </body>
+
 </html>

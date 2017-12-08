@@ -24,6 +24,16 @@ class College(models.Model):
 class FileInfo(models.Model):
     collname = models.ForeignKey(College)
     filename = models.CharField(null=False, max_length=128)
+    #date = models.DateField(null=False)
 
     def __unicode__(self):
         return self.collname.name
+
+
+class UserDetails(models.Model):
+    username = models.CharField(unique=True, null=False, max_length=128)
+    email = models.CharField(unique=False, null=False, max_length=128)
+    password = models.CharField(unique=False, null=False, max_length=128)
+
+    def __unicode__(self):
+        return self.username
