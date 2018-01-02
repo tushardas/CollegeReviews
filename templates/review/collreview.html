@@ -1,106 +1,168 @@
 {% load static %}
 <html>
-    <head>
-        <script src="{% static 'js/collreview.js' %}"></script>
-        <link href="{% static 'css/collreview.css' %}" rel="stylesheet" type="text/css">
-        <link href="{% static 'css/index.css' %}" rel="stylesheet">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-    
-        <title>College Review</title>
-    
-        <!-- Bootstrap core CSS -->
-        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    
-        <!-- Custom fonts for this template -->
-        <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-        <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    
-        <!-- Custom styles for this template -->
-        <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
-    </head>
-    <body background="{% static 'img/uvce.jpg' %}">
 
-            <nav class="navbar navbar-light bg-light static-top">
-                    <div class="container">
-                      <a class="navbar-brand" href="/review">College Review</a>
-                      <a class="btn btn-primary" href="login">Sign In</a>
-                    </div>
-            </nav>
-            
-               <font color="White" ><center><h3 class = "name">{{ name }} Review</h3></center></font>
-            {% if flag != 0 %}
-            <div class="row1">
-            {% for i in line %}
-               
-            <div class="jumbotron">
-                    <div><strong>{{i}}</strong></div>
-            </div>
-            </center>
-           
-           {% endfor %}
-           </div>
+<head>
+  <script src="{% static 'js/collreview.js' %}"></script>
+  <link href="{% static 'css/collreview.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/index.css' %}" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>College Review</title>
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body background="{% static 'img/uvce.jpg' %}"></body>
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/review">College Review</a>
+      <a class="btn btn-primary" href="login">Sign In</a>
+    </div>
+  </nav>
+
+ 
+
+
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a data-toggle="tab" href="#home">Home</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#menu1">Clubs</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#menu2">Sports</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <font color="White">
         <center>
-          <div>
-        {% elif flag == 0 %}
-            <font color="white"><p>Your college is not registered with us! Please register and add your review</p></font>
-            <a href="/review/addcoll">Add your college details and review</a>
-        {% endif %}
-        <br><br><br>
-      </div>
+          <h3 class="name">{{ name }} Review</h3>
         </center>
+      </font>
+      {% if flag != 0 %}
+      <div class="row1">
+        {% for i in line %}
+        <div class="jumbotron">
+          <div>
+            <strong>{{i}}</strong>
+          </div>
+        </div>
+        {% endfor %}
+        <center>
+          <a href="/review/addreview">Click to add your review</a>
+        </center>
+      </div>
+      <center>
+        <div>
+          {% elif flag == 0 %}
+          <font color="white">
+            <p>Your college is not registered with us! Please register and add your review</p>
+          </font>
+          <a href="/review/addcoll">Add your college details and review</a>
+          {% endif %}
+        </div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <font color="White">
+        <center>
+          <h3 class="name">Clubs</h3>
+        </center>
+      </font>
+      <div id="home" class="tab-pane fade in active">
+        <div class="row1">
+          {% for i in club %}
+          
+          <div class="jumbotron">
+            <div>
+              
+              <strong>{{i}}</strong>
+              
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
 
-        <center><a href="/review/addreview">Click to add your review</a></center>
-        <br/><br/>
-    
-        <footer class="footer bg-light">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-                      <ul class="list-inline mb-2">
-                        <li class="list-inline-item">
-                          <a href="#">About</a>
-                        </li>
-                        <li class="list-inline-item">&sdot;</li>
-                        <li class="list-inline-item">
-                          <a href="#">Contact</a>
-                        </li>
-                        <li class="list-inline-item">&sdot;</li>
-                        <li class="list-inline-item">
-                          <a href="#">Terms of Use</a>
-                        </li>
-                        <li class="list-inline-item">&sdot;</li>
-                        <li class="list-inline-item">
-                          <a href="#">Privacy Policy</a>
-                        </li>
-                      </ul>
-                      <p class="text-muted small mb-4 mb-lg-0">&copy; Start Bootstrap 2017. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-                      <ul class="list-inline mb-0">
-                        <li class="list-inline-item mr-3">
-                          <a href="#">
-                            <i class="fa fa-facebook fa-2x fa-fw"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item mr-3">
-                          <a href="#">
-                            <i class="fa fa-twitter fa-2x fa-fw"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="#">
-                            <i class="fa fa-instagram fa-2x fa-fw"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </footer>
-    </body>
+  <div id="menu2" class="tab-pane fade">
+    <font color="White">
+      <center>
+        <h3 class="name">Sports</h3>
+      </center>
+    </font>
+    <div id="home" class="tab-pane fade in active">
+      <div class="row1">
+        {% for i in sport %}
+        <div class="jumbotron">
+          <div>
+            <strong>{{i}}</strong>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Start Bootstrap 2017. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fa fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fa fa-twitter fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
 
 </html>

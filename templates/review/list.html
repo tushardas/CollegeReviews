@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+    <body background="{% static 'img/uvce.jpg' %}">
+            <font color="White">
+                    <center>
+                      <h3 class="name">List of Colleges</h3>
+                    </center>
+                </font>
+                <br><br>
+               <center>
+        {% for i in college %}
+            <form action="collreview" method="get">
+                {% csrf_token %}
+                <input type="text" name = "search" value="{{ i }}" hidden>
+                <pre><font color = "white">{{i}}</font> <input type="submit" value="Click to see review"></pre>
+            </form>
+        {% endfor %}
+    </center>
+            </body>
+
+
+    
+</html>

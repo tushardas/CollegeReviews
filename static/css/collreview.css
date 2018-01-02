@@ -82,3 +82,7 @@
     margin-right: 10%;
     margin-bottom: 5%;
 }
+
+input [type="text"]{
+    margin: white;
+}

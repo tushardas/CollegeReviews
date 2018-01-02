@@ -1,63 +1,68 @@
-{% if flag == 0 %}
-<font color="red"><div>Successfully Registered!!!</div>
-  <a href="/review/login">Click here to login</a>
-</font>
-{% endif %}
-<form class="form-horizontal" id="register" method="post" action="/review/signup">
-    {% csrf_token %}
-    <fieldset>
-        <div id="legend">
-            <legend class="">Register</legend>
-          </div>
-          <div class="control-group">
-            <!-- Username -->
-            <label class="control-label"  for="username">Username</label>
-            <div class="controls">
-              <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-              <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+  
+  
+  
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  
+</head>
+
+<body>
+  <body>
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Join Us!!!</h1>
             </div>
-          </div>
-       
-          <div class="control-group">
-            <!-- E-mail -->
-            <label class="control-label" for="email">E-mail</label>
-            <div class="controls">
-              <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-              <p class="help-block">Please provide your E-mail</p>
+            {% if flag == -2 %}
+            <div><font color="red"><b>All Fields are Required</b></font></div>
+            {% endif %}
+            <form action="/review/signup" method="post">
+                {% csrf_token %}    
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="username" id="login-name" name="username" pattern="[A-Za-z0-9]{3,}">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+        </div>
+        {% if flag == -3 %}
+        <div><font color="red"><b>Username Already Taken</b></font></div>
+        {% endif %}
+        
+        <div class="control-group">
+            <input type="email" class="login-field" value="" placeholder="email" id="login-email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <label class="login-field-icon fui-user" for="login-name"></label>
             </div>
-          </div>
-       
-          <div class="control-group">
-            <!-- Password-->
-            <label class="control-label" for="password">Password</label>
-            <div class="controls">
-              <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-              <p class="help-block">Password should be at least 4 characters</p>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="password" id="login-pass" name="password" pattern=".{8,16}">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+        <div class="control-group">
+            <input type="password" class="login-field" value="" placeholder="Re-enter Password" id="login-pass" name="confirm" pattern=".{8,16}" >
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
             </div>
-          </div>
-       
-          <div class="control-group">
-            <!-- Password -->
-            <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-            <div class="controls">
-              <input type="password" id="password_confirm" name="confirm" placeholder="" class="input-xlarge">
-              <p class="help-block">Please confirm password</p>
-            </div>
-          </div>
-          {% if flag == -1 %}
-          <font color="red"><div>Password doesnt match</div></font>
-          {% elif flag == -2 %}
-          <font color="red"><div>All fields required</div></font>
-          {% elif flag == 0 %}
-          <font color="red"><div>Successfully Registered!!!</div>
-            <a href="/review/login">Click here to login</a>
-          </font>
-          {% endif %}
-          <div class="control-group">
-            <!-- Button -->
-            <div class="controls">
-              <button class="btn btn-success">Register</button>
-            </div>
-          </div>
-    </fieldset>
-</form>
+
+            {% if flag == -1 %}
+            <div><font color="red"><b>Password doesn't match</b></font></div>
+            {% endif %}
+                
+                <div style="margin-top:10px" class="form-group">        
+                        <div class="col-sm-12 controls">
+                          <div class="my"><input type="submit" value="Signup"></input></div>
+                        </div>
+                    </div>
+                <div class="login-link">Already Registered?<a class="login-link" href="login">Login!</a></div>
+            </form>
+			</div>
+		</div>
+	</div>
+</body>
+  
+  
+</body>
+</html>
