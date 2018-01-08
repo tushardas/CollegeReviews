@@ -13,10 +13,12 @@
 </head>
 
 <body>
-  <body>
-	<div class="login">
-		<div class="login-screen">
-			<div class="app-title">
+        <nav>
+                <a href="/review"><i class="material-icons">home</i></a>
+            </nav>
+	<div class="login1">
+		<div class="login-screen1">
+			<div class="app-title1">
 				<h1>Join Us!!!</h1>
             </div>
             {% if flag == -2 %}
@@ -24,45 +26,42 @@
             {% endif %}
             <form action="/review/signup" method="post">
                 {% csrf_token %}    
-			<div class="login-form">
-				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="username" id="login-name" name="username" pattern="[A-Za-z0-9]{3,}">
-				<label class="login-field-icon fui-user" for="login-name"></label>
+			<div class="login-form1">
+				<div class="control-group1">
+				<input type="text" class="login-field1" value="" placeholder="username" id="login-name" name="username" pattern="[A-Za-z0-9]{3,}">
+				<label class="login-field-icon fui-user1" for="login-name"></label>
         </div>
         {% if flag == -3 %}
         <div><font color="red"><b>Username Already Taken</b></font></div>
         {% endif %}
         
-        <div class="control-group">
-            <input type="email" class="login-field" value="" placeholder="email" id="login-email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-            <label class="login-field-icon fui-user" for="login-name"></label>
+        <div class="control-group1">
+            <input type="email" class="login-field1" value="" placeholder="email" id="login-email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <label class="login-field-icon fui-user1" for="login-name"></label>
             </div>
 
-				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" id="login-pass" name="password" pattern=".{8,16}">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				<div class="control-group1">
+				<input type="password" class="login-field1" value="" placeholder="password" id="login-pass" name="password" pattern=".{8,16}">
+				<label class="login-field-icon fui-lock1" for="login-pass"></label>
         </div>
         <div class="control-group">
-            <input type="password" class="login-field" value="" placeholder="Re-enter Password" id="login-pass" name="confirm" pattern=".{8,16}" >
-            <label class="login-field-icon fui-lock" for="login-pass"></label>
+            <input type="password" class="login-field1" value="" placeholder="Re-enter Password" id="login-pass" name="confirm" pattern=".{8,16}" >
+            <label class="login-field-icon fui-lock1" for="login-pass"></label>
             </div>
 
             {% if flag == -1 %}
             <div><font color="red"><b>Password doesn't match</b></font></div>
             {% endif %}
                 
-                <div style="margin-top:10px" class="form-group">        
+                <div style="margin-top:10px" class="form-group1">        
                         <div class="col-sm-12 controls">
                           <div class="my"><input type="submit" value="Signup"></input></div>
                         </div>
                     </div>
-                <div class="login-link">Already Registered?<a class="login-link" href="login">Login!</a></div>
+                <div class="login-link1">Already Registered?<a class="login-link1" href="login">Login!</a></div>
             </form>
 			</div>
 		</div>
 	</div>
-</body>
-  
-  
 </body>
 </html>
