@@ -1,14 +1,14 @@
 # Django settings for CollegeReviews project.
 import os
 
-SETTINGS_DIR = os.path.dirname(__file__)
+SETTINGS_DIR = os.path.dirname(os.path.dirname(__file__))
 
 PROJECT_PATH = os.path.join(SETTINGS_DIR,os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
-TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
+TEMPLATE_PATH = os.path.join(PROJECT_PATH,'templates')
 DATABASE_PATH = os.path.join(PROJECT_PATH, 'review.db')
-STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+STATIC_PATH = os.path.join(PROJECT_PATH, 'review/static')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -25,7 +25,7 @@ DATABASES = {
         'NAME': DATABASE_PATH,                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'root',
-        'PASSWORD': '1014',
+        'PASSWORD': '',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -96,22 +96,17 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'ze0wv5b&26s4*9$d)+7q$7n(trjhwn66)h3-h#ud3m3*%0t_4b'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'CollegeReviews.urls'
@@ -119,12 +114,7 @@ ROOT_URLCONF = 'CollegeReviews.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'CollegeReviews.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    TEMPLATE_PATH,
-)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -139,6 +129,23 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'review',
 )
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['/mnt/e/Tushar/CollegeReviews/review/templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
@@ -180,7 +187,7 @@ DATABASES['default'].update(db_from_env)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'staticfiles')
 
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'

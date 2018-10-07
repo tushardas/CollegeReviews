@@ -1,5 +1,5 @@
 from django.contrib import admin
-from review.modesls import UserProfile
+from review.models import UserDetails
 
 
-admin.site.register(UserProfile)
+admin.site.register(UserDetails)

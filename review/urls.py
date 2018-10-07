@@ -1,7 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from review import views
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'tango.views.home', name='home'),
     # url(r'^tango/', include('tango.foo.urls')),
@@ -21,4 +21,4 @@ urlpatterns = patterns('',
     url(r'^logout',views.logout,name='logout'),
     url(r'^list',views.list,name='list'),
     #url(r'^about',views.about,name='about')
-)
+]
